@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <div type="checkbox" id="left">
+    <nav id="navbar">
+      <header>Python Syntax</header>
+      <a href="#Introduction">Introduction</a> <br />
+
+      <a href="#functions">Functions</a> <br />
+      <a href="#Arguments">Arguments</a> <br />
+      <a href="#Default_Parameter_Value">Default Parameter Value</a> <br />
+      <a href="#Return_Values">Return Values</a> <br />
+      <a href="#The_pass_Statement">The pass Statement</a> <br />
+      <a href="#Recursion">Recursion</a> <br />
+    </nav>
+  </div>
+  <body>
+    <main id="main-doc">
+      <section class="main-section">
+        <header>Introduction</header>
+        <p id="Introduction"></p>
+        <p>
+          Python is a popular programming language. It was created by Guido van
+          Rossum, and released in 1991.<br />
+          It is used for:
+        </p>
+
+        <ul>
+          <li>web development (server-side),</li>
+          <li>software development,</li>
+          <li>mathematics,</li>
+          <li>system scripting.</li>
+        </ul>
+      </section>
+
+      <section class="main-section">
+        <header>Functions</header>
+        <p id="functions"></p>
+        <p>
+          A function is a block of code which only runs when it is called. You
+          can pass data, known as parameters, into a function.<br />
+          A function can return data as a result.
+        </p>
+        <ul id="fun">
+          <li>
+            <strong>Creating a Function</strong> <br />
+            In Python a function is defined using the def keyword:
+            <div class="card">
+              <code
+                >def my_function():<br />
+                print("Hello from a function")</code
+              >
+            </div>
+          </li>
+          <li>
+            <strong>Calling a Function</strong> <br />
+            To call a function, use the function name followed by parenthesis:
+            <div class="card">
+              <code
+                >def my_function(): <br />
+                print("Hello from a function") <br />
+
+                my_function()</code
+              >
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="main-section">
+        <header>Arguments</header>
+        <p id="Arguments"></p>
+        <p>
+          Information can be passed into functions as arguments. Arguments are
+          specified after the function name, inside the parentheses. You can add
+          as many arguments as you want, just separate them with a comma. The
+          following example has a function with one argument (fname). When the
+          function is called, we pass along a first name, which is used inside
+          the function to print the full name:
+        </p>
+
+        <div class="card">
+          <code
+            >def my_function(fname): <br />
+            print(fname + " Refsnes") <br />
+
+            my_function("Emil") <br />
+            my_function("Tobias") <br />
+            my_function("Linus")</code
+          >
+        </div>
+
+        <li>
+          <strong> Parameters or Arguments?</strong> <br />
+          The terms parameter and argument can be used for the same thing:
+          information that are passed into a function.
+        </li>
+        <li>
+          <strong>Number of Arguments</strong> <br />
+          By default, a function must be called with the correct number of
+          arguments. Meaning that if your function expects 2 arguments, you have
+          to call the function with 2 arguments, not more, and not less.Number
+          of Arguments By default, a function must be called with the correct
+          number of arguments. Meaning that if your function expects 2
+          arguments, you have to call the function with 2 arguments, not more,
+          and not less.
+          <div class="card">
+            <code
+              >def my_function(fname, lname): <br />
+              print(fname + " " + lname) <br />
+
+              my_function("Emil", "Refsnes")</code
+            >
+          </div>
+        </li>
+        <li>
+          <strong>Arbitrary Arguments, *args</strong> <br />
+          If you do not know how many arguments that will be passed into your
+          function, add a * before the parameter name in the function
+          definition. This way the function will receive a tuple of arguments,
+          and can access the items accordingly:
+          <div class="card">
+            <code
+              >def my_function(*kids): <br />
+              print("The youngest child is " + kids[2]) <br />
+
+              my_function("Emil", "Tobias", "Linus")</code
+            >
+          </div>
+        </li>
+        <li>
+          <strong>Keyword Arguments</strong> <br />
+          You can also send arguments with the key = value syntax. This way the
+          order of the arguments does not matter.
+          <div class="card">
+            <code
+              >def my_function(child3, child2, child1): <br />
+              print("The youngest child is " + child3) <br />
+
+              my_function(child1 = "Emil", child2 = "Tobias", child3 =
+              "Linus")</code
+            >
+          </div>
+        </li>
+        <li>
+          <strong>Arbitrary Keyword Arguments, **kwargs</strong> <br />
+          If you do not know how many keyword arguments that will be passed into
+          your function, add two asterisk: ** before the parameter name in the
+          function definition. This way the function will receive a dictionary
+          of arguments, and can access the items accordingly:
+          <div class="card">
+            <code
+              >def my_function(**kid): <br />
+              print("His last name is " + kid["lname"]) <br />
+
+              my_function(fname = "Tobias", lname = "Refsnes")
+            </code>
+          </div>
+        </li>
+      </section>
+      <section class="main-section">
+        <header>Default Parameter Value</header>
+        <p id="Default_Parameter_Value"></p>
+        <p>
+          The following example shows how to use a default parameter value. If
+          we call the function without argument, it uses the default value:
+        </p>
+        <div class="card">
+          <code
+            >def my_function(country = "Norway"): <br />
+            print("I am from " + country) <br />
+
+            my_function("Sweden") <br />
+            my_function("India") <br />
+            my_function() <br />
+            my_function("Brazil")</code
+          >
+        </div>
+      </section>
+
+      <section class="main-section">
+        <header>Return Values</header>
+        <p id="Return_Values"></p>
+        <p>To let a function return a value, use the return statement:</p>
+        <div class="card">
+          <code
+            >def my_function(x): <br />
+            return 5 * x <br />
+
+            print(my_function(3))<br />
+            print(my_function(5))<br />
+            print(my_function(9))</code
+          >
+        </div>
+      </section>
+      <section class="main-section">
+        <header>The pass Statement</header>
+        <p id="The_pass_Statement"></p>
+        <p>
+          function definitions cannot be empty, but if you for some reason have
+          a function definition with no content, put in the pass statement to
+          avoid getting an error.
+        </p>
+        <div class="card">
+          <code
+            >def myfunction(): <br />
+            pass</code
+          >
+        </div>
+      </section>
+      <section class="main-section">
+        <header>Recursion</header>
+        <p id="Recursion"></p>
+        <p>
+          Python also accepts function recursion, which means a defined function
+          can call itself. Recursion is a common mathematical and programming
+          concept. It means that a function calls itself. This has the benefit
+          of meaning that you can loop through data to reach a result. The
+          developer should be very careful with recursion as it can be quite
+          easy to slip into writing a function which never terminates, or one
+          that uses excess amounts of memory or processor power. However, when
+          written correctly recursion can be a very efficient and
+          mathematically-elegant approach to programming.
+        </p>
+        <div class="card">
+          <code
+            >def tri_recursion(k): <br />
+            if(k > 0): <br />
+            result = k + tri_recursion(k - 1) <br />
+            print(result) <br />
+            else: <br />
+            result = 0 <br />
+            return result <br />
+
+            print("\n\nRecursion Example Results") <br />
+            tri_recursion(6)</code
+          >
+        </div>
+        <script>
+          window.addEventListener("DOMContentLoaded", function () {
+            var mainSections = document.querySelectorAll(".main-section");
+            mainSections.forEach(function (section) {
+              var firstChild = section.firstElementChild;
+              var text = firstChild.textContent.trim().replace(/\s+/g, "_");
+              section.id = text;
+            });
+          });
+        </script>
+      </section>
+    </main>
+  </body>
+</html>
